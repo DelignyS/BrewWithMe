@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <% @posts.each_slice(3) do |slice| %>
+      <% slice.each do |post| %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm" style="background-color: <%= ["#F5B7B1", "#D2B4DE", "#AED6F1", "#A2D9CE", "#ABEBC6", "#F9E79F"].sample %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text"><%= post.content %></p>
+            </div>
+            <div class="card-footer">
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                <small class="text-muted"><i class="fas fa-thumbs-up"></i></small>
+                <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
