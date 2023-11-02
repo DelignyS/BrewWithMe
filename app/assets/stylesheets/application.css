@@ -68,3 +68,62 @@ footer {
   width: 100%;
   margin: 0; /* Ajoutez cette ligne */
 }
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background: linear-gradient(to right, #654321, #C0A080);
+  padding: 20px;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 50%;
+}
+
+.form-top {
+  margin-bottom: auto;
+}
+
+.form-label {
+  font-size: larger;
+}
+
+.form-input {
+  width: 100%;
+  border: none;
+  font-size: larger;
+  margin-bottom: 20px;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 50%;
+  border: none;
+  font-size: larger;
+}
+
+.form-submit {
+  align-self: flex-end;
+  font-size: larger;
+}
+
+body {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url(asset-path('nom_de_votre_image.jpg')) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+  filter: blur(8px) brightness(150%);
+}

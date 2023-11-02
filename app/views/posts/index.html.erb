@@ -1,18 +1,22 @@
-<div class="container">
+<div class="container" style="max-width: 80%;">
   <div class="row">
     <% @posts.each_slice(3) do |slice| %>
       <% slice.each do |post| %>
         <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm" style="background-color: <%= ["#F5B7B1", "#D2B4DE", "#AED6F1", "#A2D9CE", "#ABEBC6", "#F9E79F"].sample %>">
+          <div class="card h-100 shadow-sm" style="background: linear-gradient(to right, <%= ["#F8C471", "#F5CBA7", "#F7DC6F", "#F4D03F"].sample %>, <%= ["#6E2C00", "#F0B27A"].sample %>);">
             <div class="card-body">
-              <h5 class="card-title"><%= post.title %></h5>
+              <h5 class="card-title">
+                <%= link_to post.title, post_path(post) %>
+              </h5>
               <p class="card-text"><%= post.content %></p>
             </div>
             <div class="card-footer">
               <div class="d-flex justify-content-between align-items-center">
                 <button class="btn btn-sm btn-outline-secondary">Edit</button>
                 <small class="text-muted"><i class="fas fa-thumbs-up"></i></small>
-                <button class="btn btn-sm btn-outline-secondary">Delete</button>
+                <%= form_with url: post_path(post), method: :delete do %>
+                  <%= submit_tag 'Delete', data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+                <% end %>
               </div>
             </div>
           </div>

@@ -23,11 +23,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user == current_user
       @post.destroy
-      flash[:notice] = 'Post was successfully deleted.'
+      redirect_to posts_path, notice: 'Post was successfully deleted.'
     else
-      flash[:alert] = 'You can only delete your own posts.'
+      redirect_to posts_path, alert: 'You can only delete your own posts.'
     end
-    redirect_to posts_path
   end
   private
 
